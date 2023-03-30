@@ -22,11 +22,11 @@ function App() {
         }
     }
 
-    const getIpInformation = async () => {
+    const getIpInformation = async (ip: String) => {
         try {
-            if (ipAddressSearch) {
+            if (ip) {
                 setIsLoading(true)
-                const responseInformation = await axios.get(`${baseUrl}${ipAddressSearch}`)
+                const responseInformation = await axios.get(`${baseUrl}${ip}`)
                 setIpAddressInformation({
                     ip: responseInformation.data.ip,
                     isp: responseInformation.data.isp,
@@ -45,10 +45,8 @@ function App() {
             void getIp()
         }
         if (ipAddress) {
-            void getIpInformation()
+            void getIpInformation(ipAddress)
         }
-        // need to disable this warning because getIpInformation is call only one time when ipAddress is set, after getIpInformation is call when user press enter on search input or click on search button
-        // eslint-disable-next-line
     }, [ipAddress]);
 
 

@@ -4,7 +4,7 @@ type Props = {
     ipAddressSearch: string,
     setIpAddressSearch: React.Dispatch<React.SetStateAction<string>>,
     ipAddressInformation: IpInformation | undefined,
-    getIpInformation: () => void,
+    getIpInformation: (ip: string) => Promise<void>,
     isLoading: boolean
 }
 export default function IpAddress ({ipAddressSearch, setIpAddressSearch, ipAddressInformation, getIpInformation, isLoading}:Props) {
@@ -15,17 +15,20 @@ export default function IpAddress ({ipAddressSearch, setIpAddressSearch, ipAddre
 
     const handleKeyPress = (event: React.KeyboardEvent) => {
         if(event.key === 'Enter'){
-            getIpInformation()
+            getIpInformation(ipAddressSearch)
             console.log('ipAddressInformation : ', ipAddressInformation)
         }
     }
 
+    const callFunction = () => {
+        getIpInformation(ipAddressSearch)
+    }
     return (
         <div className={'box data-content'}>
             <h1>IP Adress Tracker</h1>
             <div className={'input-contenaire'}>
                 <input className={'ip-address-input'} type="text" defaultValue={ipAddressSearch} onChange={handleInputChange} onKeyUp={handleKeyPress} />
-                <button className='btn-search-ip' onClick={getIpInformation}>
+                <button className='btn-search-ip' onClick={callFunction}>
                     <div className={`${isLoading ? 'loader' : ''}`}>{`${isLoading ? '' : '>'}`}</div>
                 </button>
             </div>
