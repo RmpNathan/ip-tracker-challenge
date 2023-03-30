@@ -1,3 +1,4 @@
+!!!!!!!IF YOU HAVE AD BLOCKERS (Adblock, uBlock, etc...) THE API GET REQUEST NOT WORKING!!!!!!!!
 # Frontend Mentor - IP address tracker solution
 
 This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
@@ -50,3 +51,9 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Built with
 - [React](https://reactjs.org/) - JS library
+
+Run project: 
+-npm i
+-npm start
+
+!!!!!!!IF YOU HAVE AD BLOCKERS (Adblock, uBlock, etc...) THE API GET REQUEST NOT WORKING!!!!!!!!
